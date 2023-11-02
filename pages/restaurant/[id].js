@@ -1,3 +1,4 @@
+//& update this for search dishes and process.env.STRAPI_URL with render URL
 import { gql, useQuery } from "@apollo/client";
 import { centsToDollars } from "@/utils/centsToDollars";
 import { useRouter } from "next/router";
@@ -52,7 +53,7 @@ function DishCard({ data }) {
           className="w-full rounded-2xl"
           height={300}
           width={300}
-          src={`${process.env.STRAPI_URL || "http://127.0.0.1:1337"}${
+          src={`${process.env.STRAPI_URL || "https://strapi-g6mo.onrender.com"}${
             data.attributes.image.data.attributes.url
           }`}
           alt=""
