@@ -90,16 +90,40 @@ export default function Restaurant() {
     variables: { id: router.query.id },
   });
 
+  //! added here to for search state
+  const [searchQuery, setSearchQuery] = useState(""); 
+//!---------------------------------------------------
+
   if (error) return "Error Loading Dishes";
   if (loading) return <Loader />;
   if (data.restaurant.data.attributes.dishes.data.length) {
     const { restaurant } = data;
+
+
+    //! dishes filtered for search
+    const filteredDishes = restaurant.data.attributes.dishes.data.filter(
+      (dish) =>
+        dish.attributes.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+//!------------------------------------------------------------------------------
 
     return (
       <div className="py-6">
         <h1 className="text-4xl font-bold text-green-600">
           {restaurant.data.attributes.name}
         </h1>
+//! this is the dishes search bar
+<div className="mb-6 mt-4">
+          <input
+            className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+            type="text"
+            placeholder="Search dishes..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)} //! Updates the query
+          />
+        </div>
+//!---------------------------------------------------------------
+
         <div className="py-16 px-8 bg-white rounded-3xl">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-wrap -m-4 mb-6">
