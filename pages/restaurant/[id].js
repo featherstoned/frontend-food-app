@@ -1,4 +1,3 @@
-//& update this for search dishes and process.env.STRAPI_URL with render URL
 import { gql, useQuery } from "@apollo/client";
 import { centsToDollars } from "@/utils/centsToDollars";
 import { useRouter } from "next/router";
@@ -90,7 +89,7 @@ export default function Restaurant() {
     variables: { id: router.query.id },
   });
 
-  //! added here to for search state
+  // added here to for search state
   const [searchQuery, setSearchQuery] = useState(""); 
 
 
@@ -100,7 +99,7 @@ export default function Restaurant() {
     const { restaurant } = data;
 
 
-    //! dishes filtered for search - 4 lines
+    // dishes filtered for search - 4 lines
     const filteredDishes = restaurant.data.attributes.dishes.data.filter(
       (dish) =>
         dish.attributes.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -112,7 +111,7 @@ export default function Restaurant() {
         <h1 className="text-4xl font-bold text-green-600">
           {restaurant.data.attributes.name}
         </h1>
-{/*//! this is the dishes search bar - 9 lines */}
+{/* this is the dishes search bar - 9 lines */}
 <div className="mb-6 mt-4">
           <input
             className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
