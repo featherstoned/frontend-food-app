@@ -118,7 +118,7 @@ export default function Restaurant() {
             type="text"
             placeholder="Search dishes..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)} //! Updates the query
+            onChange={(e) => setSearchQuery(e.target.value)} // Updates the query
           />
         </div>
 
