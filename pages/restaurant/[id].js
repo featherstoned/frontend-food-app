@@ -112,7 +112,7 @@ export default function Restaurant() {
         <h1 className="text-4xl font-bold text-green-600">
           {restaurant.data.attributes.name}
         </h1>
-//! this is the dishes search bar
+{/*//! this is the dishes search bar */}
 <div className="mb-6 mt-4">
           <input
             className="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
