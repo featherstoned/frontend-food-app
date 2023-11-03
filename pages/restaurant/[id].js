@@ -121,11 +121,29 @@ export default function Restaurant() {
           />
         </div>
 
-
-        <div className="py-16 px-8 bg-white rounded-3xl">
+      {/* original code */}
+        {/* <div className="py-16 px-8 bg-white rounded-3xl">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-wrap -m-4 mb-6">
               {restaurant.data.attributes.dishes.data.map((res) => {
+                return <DishCard key={res.id} data={res} />;
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return <h1>No Dishes Found</h1>;
+  }
+} */}
+
+{/* updated code */}
+<div className="py-16 px-8 bg-white rounded-3xl">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-wrap -m-4 mb-6">
+              {filteredDishes.map((res) => {
+                // Use filtered dishes here
                 return <DishCard key={res.id} data={res} />;
               })}
             </div>
